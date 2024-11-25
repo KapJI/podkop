@@ -6,8 +6,11 @@ config_load "/etc/config/podkop"
 
 config_get "interface" "main" "interface" "0"
 config_get "mode" "main" "mode" "0"
-if [ "$mode" = "vpn" ] && [ -n "$interface" ]; then
-    add_route_interface "$interface" "podkop"
+
+if [ "$ACTION" = "ifup" ] && [ "$INTERFACE" = "$interface" ]; then
+    if [ "$mode" = "vpn" ] && [ -n "$interface" ]; then
+        add_route_interface "$interface" "podkop"
+    fi
 fi
 
 if [ "$mode" = "proxy" ]; then
@@ -18,8 +21,11 @@ fi
 config_get second_enable "second" "second_enable" "0"
 config_get second_interface "second" "second_interface" "0"
 config_get "second_mode" "second" "second_mode" "0"
-if [ "$second_enable" -eq "1" ] && [ "$second_mode" = "vpn" ] && [ -n "$second_interface" ]; then
-    add_route_interface "$second_interface" "podkop2"
+
+if [ "$ACTION" = "ifup" ] && [ "$INTERFACE" = "$second_interface" ]; then
+    if [ "$second_enable" -eq "1" ] && [ "$second_mode" = "vpn" ] && [ -n "$second_interface" ]; then
+        add_route_interface "$second_interface" "podkop2"
+    fi
 fi
 
 if [ "$second_enable" -eq "1" ] && [ "$second_mode" = "proxy" ]; then

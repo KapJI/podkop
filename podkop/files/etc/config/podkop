@@ -1,6 +1,7 @@
 config main 'main'
 	option mode ''
 	option interface ''
+    option lan_interface ''
 	option proxy_string ''
 	option domain_list_enabled '1'
 	option domain_list 'ru_inside'
