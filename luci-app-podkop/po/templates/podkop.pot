@@ -37,6 +37,12 @@ msgstr ""
 msgid "Select network interface for VPN connection"
 msgstr ""
 
+msgid "Local Network Interface"
+msgstr ""
+
+msgid "Select local network interface"
+msgstr ""
+
 msgid "Community Domain Lists"
 msgstr ""
 

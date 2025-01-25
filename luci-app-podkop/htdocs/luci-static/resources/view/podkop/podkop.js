@@ -76,6 +76,24 @@ return view.extend({
             console.error('Error fetching devices:', error);
         }
 
+        o = s.taboption('basic', form.ListValue, 'lan_interface', _('Local Network Interface'), _('Select local network interface'));
+        o.depends('mode', 'vpn');
+        o.default = 'br-lan';
+        o.ucisection = 'main';
+
+        try {
+            const devices = await network.getDevices();
+
+            devices.forEach(function (device) {
+                if (device.dev && device.dev.name) {
+                    const deviceName = device.dev.name;
+                    o.value(deviceName, deviceName);
+                }
+            });
+        } catch (error) {
+            console.error('Error fetching devices:', error);
+        }
+
         o = s.taboption('basic', form.Flag, 'domain_list_enabled', _('Community Domain Lists'));
         o.default = '0';
         o.rmempty = false;
