@@ -37,6 +37,12 @@ msgstr "Сетевой интерфейс"
 msgid "Select network interface for VPN connection"
 msgstr "Выберите сетевой интерфейс для VPN подключения"
 
+msgid "Local Network Interface"
+msgstr "Локальный сетевой интерфейс"
+
+msgid "Select local network interface"
+msgstr "Выберите локальный сетевой интерфейс"
+
 msgid "Community Domain Lists"
 msgstr "Предустановленные списки доменов"
 
